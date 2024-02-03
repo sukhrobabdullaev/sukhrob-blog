@@ -30,8 +30,10 @@ const Navbar = () => {
             </Link>
           </div>
           <DrawerLinks />
-          {/* <Theme /> */}
-          <MobileDrawer />
+          <Theme />
+          <div className="md:hidden">
+            <MobileDrawer />
+          </div>
         </div>
       </div>
     </div>
