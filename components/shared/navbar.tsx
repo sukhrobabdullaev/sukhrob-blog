@@ -8,12 +8,13 @@ import {
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
 import MobileDrawer from "./mobile-drawer";
+import DrawerLinks from "./drawer-link";
 
 const Navbar = () => {
   return (
-    <div className="p-4 drop-shadow-sm fixed z-50 top-0 right-0 left-0 w-full ">
+    <div className="p-6 drop-shadow-sm fixed z-50 top-0 right-0 left-0 w-full ">
       <div className="flex items-center justify-between md:max-w-[1336px] mx-auto ">
-        <Link href="/" className={cn("font-semibold text-lg")}>
+        <Link href="/" className={cn("font-semibold md:text-lg text-md")}>
           Sukhrob's blog
         </Link>
         <div className="links flex space-x-2 items-center">
@@ -28,11 +29,8 @@ const Navbar = () => {
               <InstagramLogoIcon className="w-5 h-5 dark:hover:text-white" />
             </Link>
           </div>
-          <Link href="/blog">Blog</Link>
-          <Link href="https://youtube.com/@sukhrob-abdullaev" target="_blank">
-            YouTube
-          </Link>
-          <Theme />
+          <DrawerLinks />
+          {/* <Theme /> */}
           <MobileDrawer />
         </div>
       </div>

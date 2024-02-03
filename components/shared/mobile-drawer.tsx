@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "../ui/button";
 import { MenuSquare } from "lucide-react";
+import DrawerLinks from "./drawer-link";
 
 const MobileDrawer = () => {
   return (
@@ -19,11 +20,12 @@ const MobileDrawer = () => {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          {/* <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+          <DrawerDescription>This action cannot be undone.</DrawerDescription> */}
+          <DrawerLinks />
         </DrawerHeader>
         <DrawerFooter>
-          <Button>Submit</Button>
+          {/* <Button>Submit</Button> */}
           <DrawerClose>
             <Button variant="outline">Cancel</Button>
           </DrawerClose>
