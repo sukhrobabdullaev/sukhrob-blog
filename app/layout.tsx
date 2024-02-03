@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
-const inter = Roboto({ weight: ["400", "500"], subsets: ["latin"] });
+const montserrat = Montserrat({
+  weight: ["300", "400", "500"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Sukhrob's blog",
@@ -19,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

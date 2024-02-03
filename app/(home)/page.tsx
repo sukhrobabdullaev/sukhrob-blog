@@ -1,20 +1,14 @@
 import Image from "next/image";
-import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Drawer } from "@/components/ui/drawer";
 
-const montserrat = Montserrat({
-  weight: ["300", "400", "500"],
-  subsets: ["latin"],
-});
 export default function Home() {
   return (
     <main className="flex items-center justify-center  min-h-[95vh]">
       <div
-        className={cn(
-          "flex space-y-3 flex-col items-center justify-center",
-          montserrat.className
-        )}
+        className={cn("flex space-y-3 flex-col items-center justify-center")}
       >
         <div className="relative md:w-36 md:h-36 w-24 h-24">
           <Image
@@ -31,10 +25,13 @@ export default function Home() {
           <span> Computer Science enthusiast</span>
         </div>
         <div className="flex items-center space-x-3">
-          <Button variant="outline" className="">
-            Read a blog
+          <Button variant="outline">
+            <Link href="">Read a blog</Link>
           </Button>
-          <Button variant="ghost">About me</Button>
+          <Button variant="ghost">
+            <Link href="">About me</Link>
+          </Button>
+          <Drawer />
         </div>
       </div>
     </main>
