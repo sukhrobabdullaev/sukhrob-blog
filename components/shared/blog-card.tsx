@@ -20,7 +20,7 @@ const BlogCard = () => {
     <div className="px-4 md:w-3/4 md:mx-auto">
       <Card>
         <CardHeader>
-          <CardDescription>{formattedDate}</CardDescription>
+          <CardDescription>{formattedDate && formattedDate}</CardDescription>
           <CardTitle>Non-technical article</CardTitle>
         </CardHeader>
       </Card>

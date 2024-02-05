@@ -2,13 +2,13 @@ import BlogCard from "@/components/shared/blog-card";
 // import { calculateTime } from "@/helpers/time.format";
 import { BlogsService } from "@/services/blogs.service";
 
-async function getData() {
-  const res = await BlogsService.getAllBlog();
-  return res;
-}
+// async function getData() {
+//   const res = await BlogsService.getAllBlog();
+//   return res;
+// }
 
-const BlogPage = async () => {
-  const data = await getData();
+const BlogPage = () => {
+  // const data = await getData();
 
   return (
     <div className="md:max-w-[1220px] mx-auto pt-32">
