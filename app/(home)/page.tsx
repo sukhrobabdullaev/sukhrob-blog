@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="flex items-center space-x-3">
           <Button variant="outline">
-            <Link href="">Read a blog</Link>
+            <Link href="/blog">Read a blog</Link>
           </Button>
           <Button variant="ghost">
             <Link href="">About me</Link>

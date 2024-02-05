@@ -1,5 +1,5 @@
 import BlogCard from "@/components/shared/blog-card";
-import { calculateTime } from "@/helpers/time.format";
+// import { calculateTime } from "@/helpers/time.format";
 import { BlogsService } from "@/services/blogs.service";
 
 async function getData() {
@@ -9,7 +9,6 @@ async function getData() {
 
 const BlogPage = async () => {
   const data = await getData();
-  console.log(data.posts);
 
   return (
     <div className="md:max-w-[1220px] mx-auto pt-32">

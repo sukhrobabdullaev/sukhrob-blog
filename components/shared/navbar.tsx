@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <div
       className={`p-4 drop-shadow-sm fixed z-50 top-0 right-0 left-0 w-full transition-all ${
-        isScrolled ? "dark:bg-black border-b bg-white" : "bg-transparent"
+        isScrolled ? "dark:bg-background border-b bg-white" : "bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between md:max-w-[1220px] mx-auto ">
