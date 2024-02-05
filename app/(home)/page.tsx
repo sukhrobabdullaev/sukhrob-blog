@@ -6,7 +6,7 @@ import { Drawer } from "@/components/ui/drawer";
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center  min-h-[95vh]">
+    <main className="flex items-center justify-center min-h-[95vh]">
       <div
         className={cn("flex space-y-3 flex-col items-center justify-center")}
       >

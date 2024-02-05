@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Theme } from "../ui/theme";
 import {
@@ -11,9 +13,29 @@ import MobileDrawer from "./mobile-drawer";
 import DrawerLinks from "./drawer-link";
 
 const Navbar = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const isScrolled = scrollY > 60;
+
   return (
-    <div className="p-6 drop-shadow-sm fixed z-50 top-0 right-0 left-0 w-full ">
-      <div className="flex items-center justify-between md:max-w-[1336px] mx-auto ">
+    <div
+      className={`p-4 drop-shadow-sm fixed z-50 top-0 right-0 left-0 w-full transition-all ${
+        isScrolled ? "dark:bg-black border-b bg-white" : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between md:max-w-[1220px] mx-auto ">
         <Link href="/" className={cn("font-semibold md:text-lg text-md")}>
           Sukhrob's blog
         </Link>
