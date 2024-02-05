@@ -16,14 +16,25 @@ const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout | number | undefined;
+
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId as number);
+      }
+
+      timeoutId = setTimeout(() => {
+        setScrollY(window.scrollY);
+      }, 200); // Adjust the debounce time (in milliseconds) as needed
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId as number);
+      }
     };
   }, []);
 
