@@ -4,8 +4,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { BlogsType } from "@/interface/blogs.interface";
 
-const BlogCard = () => {
+const BlogCard = ({ post }: { post: BlogsType }) => {
   const today: Date = new Date();
 
   const day: string = today.getDate().toString().padStart(2, "0");
@@ -18,10 +19,10 @@ const BlogCard = () => {
 
   return (
     <div className="px-4 md:w-3/4 md:mx-auto">
-      <Card>
+      <Card key={post.id}>
         <CardHeader>
           <CardDescription>{formattedDate && formattedDate}</CardDescription>
-          <CardTitle>Non-technical article</CardTitle>
+          <CardTitle>{post.title}</CardTitle>
         </CardHeader>
       </Card>
     </div>
