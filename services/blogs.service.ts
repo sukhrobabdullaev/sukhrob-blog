@@ -27,7 +27,7 @@ export const BlogsService = {
       }
     `;
 
-    const result = await request<{ posts: BlogsType }>(graphAPI, query);
-    return result;
+    const result = await request<{ posts: BlogsType[] }>(graphAPI, query);
+    return result.posts;
   },
 };
