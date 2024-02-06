@@ -1,3 +1,4 @@
+type TrustedHTML = string;
 export interface BlogsType {
   createdAt: string;
   date: string;
@@ -13,5 +14,9 @@ export interface BlogsType {
   coverImage: {
     id: string;
     url: string;
+  };
+  content: {
+    html: TrustedHTML;
+    text: string;
   };
 }

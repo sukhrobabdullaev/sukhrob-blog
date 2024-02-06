@@ -23,11 +23,33 @@ export const BlogsService = {
             id
             url
           }
+          content {
+            text
+          }
         }
       }
     `;
 
     const result = await request<{ posts: BlogsType[] }>(graphAPI, query);
     return result.posts;
+  },
+
+  async getDetailedBlog(slug: string) {
+    const query = gql`
+      query GetDetailedBlog($slug: String!) {
+        post(where: { slug: $slug }) {
+          id
+          excerpt
+          title
+          slug
+          content {
+            html
+            text
+          }
+        }
+      }
+    `;
+    const res = await request<{ data: BlogsType }>(graphAPI, query, { slug });
+    return res.data;
   },
 };

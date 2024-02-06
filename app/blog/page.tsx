@@ -6,11 +6,11 @@ import { BlogsService } from "@/services/blogs.service";
 async function getData() {
   try {
     const res = await BlogsService.getAllBlog();
-    console.log("Response from API:", res); // Check the response format
+    console.log("Response from API:", res);
     return res;
   } catch (error) {
     console.error("Error fetching data:", error);
-    return []; // Return an empty array in case of error
+    return [];
   }
 }
 
