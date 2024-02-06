@@ -18,14 +18,14 @@ const BlogPage = async () => {
   const data = await getData();
 
   return (
-    <div className="md:max-w-[1220px] mx-auto pt-32">
-      <div className="flex flex-col space-y-4">
+    <div className="md:max-w-[1220px] mx-auto pt-32 flex gap-10">
+      <div className="flex flex-col space-y-4 w-3/4">
         {data &&
           data.map((post: BlogsType) => {
             return <BlogCard key={post.id} post={post} />;
           })}
       </div>
-      <div className="right"></div>
+      <div className="">latest</div>
     </div>
   );
 };
