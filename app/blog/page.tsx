@@ -2,8 +2,19 @@ import BlogCard from "@/components/shared/blog-card";
 import { BlogsType } from "@/interface/blogs.interface";
 import { BlogsService } from "@/services/blogs.service";
 
+function getData() {
+  try {
+    const res = BlogsService.getAllBlog();
+    console.log("Response from API:", res);
+    return res;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+}
+
 const BlogPage = async () => {
-  const data = await BlogsService.getAllBlog();
+  const data = await getData();
   console.log(data);
 
   return (

@@ -18,7 +18,7 @@ const BlogDetailedPage = async ({ params }: { params: BlogsType }) => {
   return (
     <div>
       <span>{data?.excerpt}</span>
-      <div dangerouslySetInnerHTML={{ __html: `${data?.content?.html}` }}></div>
+      {/* <div dangerouslySetInnerHTML={{ __html: `${data?.content?.html}` }}></div> */}
     </div>
   );
 };
