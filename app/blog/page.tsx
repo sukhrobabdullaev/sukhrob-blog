@@ -1,21 +1,10 @@
 import BlogCard from "@/components/shared/blog-card";
 import { BlogsType } from "@/interface/blogs.interface";
-// import { calculateTime } from "@/helpers/time.format";
 import { BlogsService } from "@/services/blogs.service";
 
-async function getData() {
-  try {
-    const res = await BlogsService.getAllBlog();
-    console.log("Response from API:", res);
-    return res;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return [];
-  }
-}
-
 const BlogPage = async () => {
-  const data = await getData();
+  const data = await BlogsService.getAllBlog();
+  console.log(data);
 
   return (
     <div className="md:max-w-[1220px] mx-auto pt-32 flex gap-10">
