@@ -1,10 +1,8 @@
-import { BlogsType } from "@/interface/blogs.interface";
 import { BlogsService } from "@/services/blogs.service";
 
-async function getData(slug: string) {
+async function getData(id: string) {
   try {
-    const detailedBlog = await BlogsService.getDetailedBlog(slug);
-    console.log("Detailed Blog Data:", detailedBlog);
+    const detailedBlog = await BlogsService.getDetailedBlog(id);
     return detailedBlog;
   } catch (error) {
     console.error("Error fetching detailed blog:", error);
@@ -12,13 +10,18 @@ async function getData(slug: string) {
   }
 }
 
-const BlogDetailedPage = async ({ params }: { params: BlogsType }) => {
+const BlogDetailedPage = async ({ params }: { params: { slug: string } }) => {
   const data = await getData(params.slug);
+  console.log(data);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      <span>{data?.excerpt}</span>
-      {/* <div dangerouslySetInnerHTML={{ __html: `${data?.content?.html}` }}></div> */}
+      <span>{data.title}</span>
+      <div dangerouslySetInnerHTML={{ __html: `${data?.content?.html}` }}></div>
     </div>
   );
 };

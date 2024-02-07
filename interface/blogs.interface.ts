@@ -20,3 +20,14 @@ export interface BlogsType {
     text: string;
   };
 }
+
+export interface IsinglePost {
+  id: string;
+  excerpt: string;
+  title: string;
+  slug: string;
+  content: {
+    html: string;
+    text: string;
+  };
+}

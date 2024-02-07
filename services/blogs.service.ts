@@ -1,8 +1,10 @@
-import { BlogsType } from "@/interface/blogs.interface";
+import { BlogsType, IsinglePost } from "@/interface/blogs.interface";
 import { request, gql } from "graphql-request";
 
 const graphAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT!;
-
+interface DetailedBlogResponse {
+  post: IsinglePost; // Assuming IsinglePost is the correct type for the post object
+}
 export const BlogsService = {
   async getAllBlog() {
     const query = gql`
@@ -49,7 +51,11 @@ export const BlogsService = {
         }
       }
     `;
-    const res = await request<{ data: BlogsType }>(graphAPI, query, { slug });
-    return res.data;
+    const slugName = {
+      slug,
+    };
+
+    const res = await request<DetailedBlogResponse>(graphAPI, query, slugName);
+    return res.post;
   },
 };
